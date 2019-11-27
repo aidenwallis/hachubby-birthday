@@ -1,0 +1,15 @@
+$light-pink: #FA2F96;
+$light-grey: #f1f1f1;
+
+:root {
+  --light-pink: #{$light-pink};
+  --light-grey: #{$light-grey};
+
+  --image-width: 440px;
+  --image-height: 550px;
+
+  --page-border-width: 10px;
+  --page-width: calc(var(--image-width) + (var(--page-border-width) * 2));
+  --page-height: calc(var(--image-height) + (var(--page-border-width) * 2));
+  --page-double-width: calc(var(--page-width) * 2);
+}

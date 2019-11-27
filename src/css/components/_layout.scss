@@ -1,0 +1,31 @@
+.fullscreen {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+}
+
+.autoscroll {
+  overflow: auto;
+}
+
+.margin--auto {
+  margin: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.items {
+  &--center {
+    align-items: center;
+  }
+}
+
+.justify {
+  &--center {
+    justify-content: center;
+  }
+}

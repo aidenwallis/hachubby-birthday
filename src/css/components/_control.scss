@@ -1,0 +1,28 @@
+.control {
+  margin: 20px 10px;
+  background: transparent;
+  cursor: pointer;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  -webkit-appearance: none;
+
+  &__icon {
+    opacity: .5;
+    width: 50px;
+    height: 50px;
+  }
+
+  &:hover, &:focus {
+    .control__icon {
+      opacity: .8;
+    }
+  }
+
+  &:active {
+    .control__icon {
+      opacity: 1;
+    }
+  }
+}

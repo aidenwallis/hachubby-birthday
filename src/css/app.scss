@@ -1,0 +1,28 @@
+@import '../../node_modules/normalize.css/normalize';
+
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'proxima-nova', sans-serif;
+  overflow: hidden;
+}
+
+.base {
+  z-index: 2;
+}
+
+#app {
+  padding: 20px;
+}
+
+@import './variables';
+
+@import './components/background';
+@import './components/card';
+@import './components/control';
+@import './components/layout';
+@import './components/loader';
+@import './components/page';

@@ -1,0 +1,40 @@
+#loading {
+  z-index: 3;
+  &:not(.loading--active) {
+    display: none;
+  }
+}
+
+.loader {
+  animation: loader-rotator 1.4s linear infinite;
+  &__path {
+    stroke-dasharray: 187;
+    stroke-dashoffset: 0;
+    transform-origin: center;
+    stroke: var(--light-pink);
+    animation: loader-dash 1.4s ease-in-out infinite;
+  }
+}
+
+@keyframes loader-rotator {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes loader-dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    transform: rotate(450deg);
+  }
+}
