@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "parcel ./src/index.html",
-    "build": "parcel build ./src/index.html --public-url '.'"
+    "build": "parcel build ./src/index.html --public-url 'https://aidenwallis.github.io/hachubby-birthday/'"
   },
   "dependencies": {
     "normalize.css": "^8.0.1"
