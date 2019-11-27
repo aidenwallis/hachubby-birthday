@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "parcel ./src/index.html",
-    "build": "parcel build ./src/index.html"
+    "build": "parcel build ./src/index.html --public-url '.'"
   },
   "dependencies": {
     "normalize.css": "^8.0.1"
