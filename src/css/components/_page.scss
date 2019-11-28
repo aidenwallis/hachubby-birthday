@@ -13,6 +13,7 @@
   transition: all 0.75s ease-in-out;
   transform-style: preserve-3d;
   transform-origin: 0% 50%;
+  will-change: transform;
   transform: perspective(300vh) rotateY(0deg);
   &--back {
     backface-visibility: visible;
