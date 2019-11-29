@@ -33,7 +33,7 @@ export default class CreditsPage {
 
     const subtitle = document.createElement('h4');
     subtitle.className = 'credits__header__subtitle';
-    subtitle.textContent = 'Thank you everyone who participated!';
+    subtitle.textContent = 'Thanks to everyone that participated!';
     wrapper.appendChild(subtitle);
 
     element.appendChild(wrapper);

@@ -80,6 +80,15 @@ export default class CardController {
       newPage = !newPage;
       doublePage.prepend(page);
     }
+
+    if (doublePage.childNodes.length < 2) {
+      while (doublePage.childNodes.length < 2) {
+        const page = document.createElement('div');
+        page.className = `page page--type-image page--${newPage ? 'front' : 'back'}`;
+        newPage = !newPage;
+        doublePage.prepend(page);
+      }
+    }
     doublePage && this.cardElement_.prepend(doublePage);
 
     this.currentIndex_ = this.cardElement_.childNodes.length - 1;
