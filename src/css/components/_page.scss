@@ -20,9 +20,16 @@
     .page__image, .credits {
       transform: rotateY(180deg);
     }
+    .page__number {
+      right: 0;
+      transform: rotateY(180deg);
+    }
   }
   &--front {
     backface-visibility: hidden;
+    .page__number {
+      right: 0;
+    }
   }
   &__image {
     width: var(--page-width);
@@ -48,5 +55,12 @@
     .page {
       transform: perspective(300vh) rotateY(-180deg);
     }
+  }
+  &__number {
+    position: absolute;
+    bottom: 0;
+    padding: 15px;
+    font-size: .875rem;
+    backface-visibility: visible;
   }
 }

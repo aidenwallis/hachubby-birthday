@@ -8,8 +8,16 @@ export default class ControlController {
     this.appElement_ = appElement;
     this.cardController_ = cardController;
 
+    this.wrapperElement_ = document.createElement('div');
+    this.wrapperElement_.className = 'footer';
+
+    this.pageElement_ = document.createElement('p');
+    this.pageElement_.className = 'pagination';
+    this.wrapperElement_.appendChild(this.pageElement_);
+
     this.containerElement_ = document.createElement('div');
     this.containerElement_.className = 'controls flex justify--center';
+    this.wrapperElement_.appendChild(this.containerElement_);
   }
 
   mount() {
@@ -28,7 +36,8 @@ export default class ControlController {
       this.containerElement_.appendChild(control);
     }
 
-    this.appElement_.appendChild(this.containerElement_);
+    this.appElement_.appendChild(this.wrapperElement_);
+    this.setPage([0]);
   }
 
   registerKeys() {
@@ -45,10 +54,14 @@ export default class ControlController {
   }
 
   back_() {
-    this.cardController_.navigateBack();
+    this.cardController_.navigateBack((page) => this.setPage(page));
   }
 
   next_() {
-    this.cardController_.navigateNext();
+    this.cardController_.navigateNext((page) => this.setPage(page));
+  }
+
+  setPage(pages = [0]) {
+    this.pageElement_.textContent = `Page ${pages.join('-')}`;
   }
 }
