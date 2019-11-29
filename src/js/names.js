@@ -110,7 +110,7 @@ export default [
   "Near49",
   "Terra",
   "JulynnLau",
-  "Bonzal",
+  "Bonzai",
   "TwiceLoverOfSana",
   "Yakii",
 ];
