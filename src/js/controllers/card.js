@@ -27,6 +27,7 @@ export default class CardController {
       pageNumber: 1,
       type: PAGE_TYPE.image,
       src: FRONT_IMAGE,
+      border: false,
     });
 
     for (let i = 0; i < pages.length; ++i) {
@@ -35,12 +36,14 @@ export default class CardController {
         pageNumber: pageNumber,
         type: PAGE_TYPE.image,
         src: pages[i],
+        border: true,
       });
     }
 
     this.pages_.push({
       pageNumber: pages.length + 2,
       type: PAGE_TYPE.credits,
+      border: true,
     });
   }
 
@@ -59,7 +62,8 @@ export default class CardController {
 
       const pageData = this.pages_[i];
       const page = document.createElement('div');
-      page.className = `page page--type-${PAGE_TYPE[pageData.type]} page--${newPage ? 'front' : 'back'}`;
+      page.className = `page page--type-${PAGE_TYPE[pageData.type]} page--${newPage ? 'front' : 'back'}${pageData.border ? ' page--border' : ''}`;
+
       if (pageData.type === PAGE_TYPE.image) {
         const image = document.createElement('img');
         image.className = 'page__image';
@@ -68,13 +72,9 @@ export default class CardController {
         page.appendChild(image);
       }
 
-      console.log(pageData.type);
       if (pageData.type === PAGE_TYPE.credits) {
-        console.log(pageData);
         const creditsPage = new CreditsPage().build();
-        console.log(creditsPage, page);
         page.appendChild(creditsPage);
-        console.log(doublePage);
       }
 
       newPage = !newPage;

@@ -24,8 +24,18 @@
   &--front {
     backface-visibility: hidden;
   }
-  &--type-image, &--type-credits {
+  &__image {
+    width: var(--page-width);
+    height: var(--page-height);
+  }
+  &--border {
     border: var(--page-border-width) solid var(--light-pink);
+    .page__image {
+      width: var(--image-width);
+      height: var(--image-height);
+    }
+  }
+  &--type-image, &--type-credits, &--type-cover {
     width: var(--page-width);
     height: var(--page-height);
     background: var(--light-grey);
@@ -33,10 +43,6 @@
   }
   &--type-credits {
     display: flex;
-  }
-  &__image {
-    width: var(--image-width);
-    height: var(--image-height);
   }
   &--flipped {
     .page {
