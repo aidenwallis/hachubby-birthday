@@ -24,16 +24,19 @@
   &--front {
     backface-visibility: hidden;
   }
-  &--type-page {
+  &--type-image, &--type-credits {
     border: var(--page-border-width) solid var(--light-pink);
     width: var(--page-width);
     height: var(--page-height);
     background: var(--light-grey);
     box-shadow: inset 10px 0 15px 0 rgba(0, 0, 0, .1);
-    .page__image {
-      width: var(--image-width);
-      height: var(--image-height);
-    }
+  }
+  &--type-credits {
+    display: flex;
+  }
+  &__image {
+    width: var(--image-width);
+    height: var(--image-height);
   }
   &--flipped {
     .page {

@@ -1,9 +1,9 @@
 import { FRONT_IMAGE } from '../constants';
+import CreditsPage from '../pages/credits';
 
 const PAGE_TYPE = {
-  front: 'front',
-  page: 'page',
-  back: 'back',
+  image: 'image',
+  credits: 'credits',
 };
 
 export default class CardController {
@@ -25,7 +25,7 @@ export default class CardController {
     // Add front page
     this.pages_.push({
       pageNumber: 1,
-      type: PAGE_TYPE.front,
+      type: PAGE_TYPE.image,
       src: FRONT_IMAGE,
     });
 
@@ -33,10 +33,15 @@ export default class CardController {
       const pageNumber = i + 1;
       this.pages_.push({
         pageNumber: pageNumber,
-        type: PAGE_TYPE.page,
+        type: PAGE_TYPE.image,
         src: pages[i],
       });
     }
+
+    this.pages_.push({
+      pageNumber: pages.length + 2,
+      type: PAGE_TYPE.credits,
+    });
   }
 
   build() {
@@ -55,15 +60,27 @@ export default class CardController {
       const pageData = this.pages_[i];
       const page = document.createElement('div');
       page.className = `page page--type-${PAGE_TYPE[pageData.type]} page--${newPage ? 'front' : 'back'}`;
-      const image = document.createElement('img');
-      image.className = 'page__image';
-      image.src = pageData.src;
-      image.draggable = false;
+      if (pageData.type === PAGE_TYPE.image) {
+        const image = document.createElement('img');
+        image.className = 'page__image';
+        image.src = pageData.src;
+        image.draggable = false;
+        page.appendChild(image);
+      }
+
+      console.log(pageData.type);
+      if (pageData.type === PAGE_TYPE.credits) {
+        console.log(pageData);
+        const creditsPage = new CreditsPage().build();
+        console.log(creditsPage, page);
+        page.appendChild(creditsPage);
+        console.log(doublePage);
+      }
 
       newPage = !newPage;
-      page.appendChild(image);
       doublePage.prepend(page);
     }
+    doublePage && this.cardElement_.prepend(doublePage);
 
     this.currentIndex_ = this.cardElement_.childNodes.length - 1;
   }
