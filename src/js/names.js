@@ -124,4 +124,5 @@ export default [
   "mixtapecollector707",
   "Linkff",
   "Saltroom",
+  "Seichi",
 ];

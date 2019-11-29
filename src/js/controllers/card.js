@@ -1,4 +1,4 @@
-import { FRONT_IMAGE } from '../constants';
+import { FRONT_IMAGE, BACK_IMAGE } from '../constants';
 import CreditsPage from '../pages/credits';
 
 const PAGE_TYPE = {
@@ -43,6 +43,13 @@ export default class CardController {
 
     this.pages_.push({
       pageNumber: pages.length + 1,
+      type: PAGE_TYPE.image,
+      src: BACK_IMAGE,
+      border: false,
+    });
+
+    this.pages_.push({
+      pageNumber: pages.length + 2,
       type: PAGE_TYPE.credits,
       border: true,
     });
@@ -50,7 +57,7 @@ export default class CardController {
     // filler page.
     if (Math.abs(this.pages_.length % 2) == 1) {
       this.pages_.push({
-        pageNumber: pages.length + 2,
+        pageNumber: pages.length + 3,
         type: PAGE_TYPE.image,
         src: null,
         border: true,
@@ -81,13 +88,6 @@ export default class CardController {
       page.className = `page page--type-${PAGE_TYPE[pageData.type]} page--${newPage ? 'front' : 'back'}${pageData.border ? ' page--border' : ''}`;
 
       curNumber.push(pageData.pageNumber);
-
-      // if (pageData.pageNumber) {
-      //   const number = document.createElement('span');
-      //   number.textContent = pageData.pageNumber;
-      //   number.className = 'page__number';
-      //   page.appendChild(number);
-      // }
 
       if (pageData.type === PAGE_TYPE.image && pageData.src) {
         const image = document.createElement('img');
