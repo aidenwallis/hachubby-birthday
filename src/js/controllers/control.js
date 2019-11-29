@@ -3,6 +3,17 @@ const ICONS = {
   right: require('../../images/arrow-circle-right-solid.svg'),
 };
 
+const KEY_CODES = {
+  back: new Set([
+    37, // Left arrow key
+    33, // Page up
+  ]),
+  next: new Set([
+    39, // Right arrow
+    34, // Page down
+  ])
+};
+
 export default class ControlController {
   constructor(appElement, cardController) {
     this.appElement_ = appElement;
@@ -42,11 +53,11 @@ export default class ControlController {
 
   registerKeys() {
     document.addEventListener('keydown', (e) => {
-      if (e.keyCode === 37) {
+      if (KEY_CODES.back.has(e.keyCode)) {
         e.preventDefault();
         this.back_();
       }
-      if (e.keyCode === 39) {
+      if (KEY_CODES.next.has(e.keyCode)) {
         e.preventDefault();
         this.next_();
       }
