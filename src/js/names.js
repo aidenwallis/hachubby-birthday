@@ -122,4 +122,6 @@ export default [
   "mattfilm27",
   "Malefique",
   "mixtapecollector707",
+  "Linkff",
+  "Saltroom",
 ];
