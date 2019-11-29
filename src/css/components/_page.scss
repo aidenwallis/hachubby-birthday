@@ -17,7 +17,7 @@
   transform: perspective(300vh) rotateY(0deg);
   &--back {
     backface-visibility: visible;
-    .page__image {
+    .page__image, .credits {
       transform: rotateY(180deg);
     }
   }
